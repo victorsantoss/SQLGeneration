@@ -91,7 +91,7 @@ namespace SQLGeneration.Builders
         /// <summary>
         /// Gets the aliased sources in the collection.
         /// </summary>
-        internal IEnumerable<AliasedSource> Sources
+        public IEnumerable<AliasedSource> Sources
         {
             get { return sourceLookup.Values; }
         }

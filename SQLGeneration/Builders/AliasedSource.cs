@@ -68,6 +68,15 @@ namespace SQLGeneration.Builders
             }
         }
 
+        /// <summary>
+        /// Gets the full qualified name of the table.
+        /// </summary>
+        /// <returns>The qualifier with tale name used to refer to the source.</returns>
+        internal string GetFullQualifiedSourceName()
+        {            
+            return Source.GetFullQualifiedSourceName();
+        }
+
         void IVisitableBuilder.Accept(BuilderVisitor visitor)
         {
             visitor.VisitAliasedSource(this);

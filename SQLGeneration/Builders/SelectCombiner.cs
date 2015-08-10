@@ -106,6 +106,11 @@ namespace SQLGeneration.Builders
             return null;
         }
 
+        string IRightJoinItem.GetFullQualifiedSourceName()
+        {
+            return null;
+        }
+
         bool IRightJoinItem.IsAliasRequired
         {
             get { return true; }

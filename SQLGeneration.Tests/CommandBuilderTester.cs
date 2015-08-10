@@ -11,6 +11,28 @@ namespace SQLGeneration.Tests
     [TestClass]
     public class CommandBuilderTester
     {
+        #region Custom Tests
+        /// <summary>
+        /// Custom test method for our purposes
+        /// </summary>
+        [TestMethod]
+        public void TestCustomSQL()
+        {
+            //string commandText = "SELECT 1 AS field from abc HAVING count(1) = 1";
+            string commandText = @"SELECT CEP, Nome_Logradouro, Bairro, Cidade_IBGE, FROM [NFSE].[CEP_Logradouros]";
+            //string commandText = "SELECT 1 AS field from abc HAVING 1 = 1";
+            //string commandText = "SELECT 1 AS field where (select count(1)) = 1"; 
+
+            CommandBuilder builder = new CommandBuilder();
+            ICommand command = builder.GetCommand(commandText);
+            Formatter formatter = new Formatter();
+            string actual = formatter.GetCommandText(command);
+
+            Assert.AreEqual(commandText.ToUpper(), actual.ToUpper(), "The command builder did not generate the original command text.");
+            //assertCanReproduce(commandText);
+        }
+        #endregion
+
         #region Select
 
         /// <summary>
@@ -109,7 +131,7 @@ namespace SQLGeneration.Tests
         [TestMethod]
         public void TestSelect_Having()
         {
-            string commandText = "SELECT 1 HAVING 1 = 1";
+            string commandText = "SELECT 1 AS field HAVING count(1) = 1 order by field";
             assertCanReproduce(commandText);
         }
 

@@ -56,6 +56,16 @@ namespace SQLGeneration.Builders
             return Name;
         }
 
+        string IRightJoinItem.GetFullQualifiedSourceName()
+        {
+            if (Qualifier.Qualifiers != null)
+            {
+                return String.Format("{0}.{1}", String.Join(".", Qualifier.Qualifiers), Name);
+            }
+            else
+                return Name;
+        }
+
         bool IRightJoinItem.IsAliasRequired
         {
             get { return false; }

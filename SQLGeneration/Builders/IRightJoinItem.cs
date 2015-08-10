@@ -20,5 +20,11 @@ namespace SQLGeneration.Builders
         /// </summary>
         /// <returns></returns>
         string GetSourceName();
+
+        /// <summary>
+        /// Gets the full qualified name of the table -or- null if the item is a SELECT statement.
+        /// </summary>
+        /// <returns></returns>
+        string GetFullQualifiedSourceName();
     }
 }

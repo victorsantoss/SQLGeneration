@@ -122,6 +122,11 @@ namespace SQLGeneration.Builders
             return null;
         }
 
+        string IRightJoinItem.GetFullQualifiedSourceName()
+        {
+            return null;
+        }
+
         bool IValueProvider.IsValueList
         {
             get { return false; }

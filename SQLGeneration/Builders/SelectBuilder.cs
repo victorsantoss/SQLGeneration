@@ -90,6 +90,14 @@ namespace SQLGeneration.Builders
         }
 
         /// <summary>
+        /// Removes all projection items from the projection.
+        /// </summary>
+        public void RemoveAllProjections()
+        {
+            _projection.Clear();
+        }
+        
+        /// <summary>
         /// Gets the tables, joins or sub-queries that are projected from.
         /// </summary>
         public IEnumerable<IJoinItem> From
@@ -252,6 +260,15 @@ namespace SQLGeneration.Builders
         }
 
         /// <summary>
+        /// Removes the sort criteria from the query.
+        /// </summary>
+        /// <returns>True if the item was removed; otherwise, false.</returns>
+        public void RemoveAllOrderBy()
+        {            
+            _orderBy.Clear();
+        }
+
+        /// <summary>
         /// Gets the items that the query is grouped by.
         /// </summary>
         public IEnumerable<IGroupByItem> GroupBy
@@ -357,6 +374,11 @@ namespace SQLGeneration.Builders
         }
 
         string IRightJoinItem.GetSourceName()
+        {
+            return null;
+        }
+
+        string IRightJoinItem.GetFullQualifiedSourceName()
         {
             return null;
         }
